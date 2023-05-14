@@ -34,13 +34,18 @@ class OverviewFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+    }
+
+    override fun onStart() {
+        super.onStart()
         loadSeries()
     }
 
     private fun loadSeries() {
+        if (mainActivity!!.watcherUtil == null) return;
         val seriesList = requireView().findViewById<LinearLayout>(R.id.entries)
         seriesList.removeAllViews()
-        for (overviewEntry in mainActivity!!.watcherUtil.GetOverviewEntries()) {
+        for (overviewEntry in mainActivity!!.watcherUtil!!.GetOverviewEntries()) {
             val newEntry = LayoutInflater.from(context).inflate(R.layout.series_entry, null)
             val nameView = newEntry.findViewById<TextView>(R.id.series_entry_name)
             nameView.text = overviewEntry.name

@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
     private var RESULT_CODE_FILECHOOSER = 1337
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
-    public lateinit var watcherUtil:WatcherUtil
+    public var watcherUtil:WatcherUtil? = null
     public var selectedSeriesId = -1
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -64,7 +64,7 @@ class MainActivity : AppCompatActivity() {
     private fun saveData() {
         val saveFilePath = getPath() ?: return
         val uri = android.net.Uri.parse(saveFilePath)
-        val jsonString = watcherUtil.data.toString()
+        val jsonString = watcherUtil!!.data.toString()
         val outputStream = contentResolver.openOutputStream((uri))
         outputStream!!.write(jsonString.toByteArray())
         outputStream!!.close()

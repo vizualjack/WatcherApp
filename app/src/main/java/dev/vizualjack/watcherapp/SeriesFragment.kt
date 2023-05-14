@@ -37,17 +37,17 @@ class SeriesFragment : Fragment() {
         loadSeriesInfo()
         loadWatchInfo()
         binding.fragmentSeriesPrev.setOnClickListener {
-            mainActivity!!.watcherUtil.PrevEpisode(mainActivity!!.selectedSeriesId)
+            mainActivity!!.watcherUtil!!.PrevEpisode(mainActivity!!.selectedSeriesId)
             loadWatchInfo()
         }
         binding.fragmentSeriesNext.setOnClickListener {
-            mainActivity!!.watcherUtil.NextEpisode(mainActivity!!.selectedSeriesId)
+            mainActivity!!.watcherUtil!!.NextEpisode(mainActivity!!.selectedSeriesId)
             loadWatchInfo()
         }
     }
 
     private fun loadSeriesInfo() {
-        val series = mainActivity!!.watcherUtil.GetSeriesForId(mainActivity!!.selectedSeriesId)
+        val series = mainActivity!!.watcherUtil!!.GetSeriesForId(mainActivity!!.selectedSeriesId)
         binding.fragmentSeriesName.text = series!!.name
         val imageAsBase64 = series!!.imgAsDataUri.split("base64,")[1]
         val decodedImage = Base64.getDecoder().decode(imageAsBase64)
@@ -56,7 +56,7 @@ class SeriesFragment : Fragment() {
     }
 
     private fun loadWatchInfo() {
-        val watchInfo = mainActivity!!.watcherUtil.GetWatchInfo(mainActivity!!.selectedSeriesId)
+        val watchInfo = mainActivity!!.watcherUtil!!.GetWatchInfo(mainActivity!!.selectedSeriesId)
         binding.fragmentSeriesWatchInfo.text = "Season ${watchInfo!!.curSeason}/${watchInfo!!.seasons}\n" +
                 "Episode ${watchInfo!!.curEpisode}/${watchInfo!!.seasonEpisodes}"
     }

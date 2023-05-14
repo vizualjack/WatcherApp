@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">WatcherApp</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_main">MainActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="overview_fragment_label">Overview</string>
+    <string name="series_fragment_label">Series</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+</resources>

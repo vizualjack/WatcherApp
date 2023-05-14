@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/OverviewFragment">
+
+    <fragment
+        android:id="@+id/OverviewFragment"
+        android:name="dev.vizualjack.watcherapp.OverviewFragment"
+        android:label="@string/overview_fragment_label"
+        tools:layout="@layout/fragment_overview">
+
+        <action
+            android:id="@+id/action_OverviewFragment_to_SeriesFragment"
+            app:destination="@id/SeriesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/SeriesFragment"
+        android:name="dev.vizualjack.watcherapp.SeriesFragment"
+        android:label="@string/series_fragment_label"
+        tools:layout="@layout/fragment_series">
+
+        <action
+            android:id="@+id/action_SeriesFragment_to_OverviewFragment"
+            app:destination="@id/OverviewFragment" />
+    </fragment>
+</navigation>
